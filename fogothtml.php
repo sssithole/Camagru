@@ -7,10 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-   <form action="forgot.php" method="POST">
+   <form action="register.php" method="POST">
        <h1>forgot password</h1>
-       username<input type="text" name="user"><br>
-       email<input type="email" mname="email"><br>
+       email<input type="email" name="email"><br>
        <button type="submit" name="forgot">submit</button>
    </form>
 </body>

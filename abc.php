@@ -1,6 +1,7 @@
 <?php
-    session_start();
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +11,10 @@
     <title>Document</title>
 </head>
 <body>
-<form action="register.php" method="POST">
-    <input name="email" value="<?=$_GET['email']?>"  />
-    username<input type="text" name="user"><br>
-    e-mail<input type="email" name="email"><br>
-    password<input type="password" name="passwd"><br>
+   
+    <h1>hello name</h1>
+    <form action="change.php" method="POST">
+    <button type="submit" name="home">home</button>
     <button type="submit" name="update">update</button>
     </form>
 </body>
