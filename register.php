@@ -1,5 +1,9 @@
 <?php
-
+/************************
+ *                      *
+ *     register         *
+ *                      *
+ ************************/
 if(isset($_POST['register'])){
     include_once ('connect.php');
 
@@ -61,11 +65,12 @@ if(!$exists){
  *                      *
  ************************/
 
-session_start();
+
 
 if(isset($_POST['login'])){
     
-    
+    session_start();
+    var_dump($_SESSION);
     include_once('connect.php');
     $name = $_POST['user'];
     //$mail = $_POST['email'];
@@ -110,25 +115,15 @@ if(isset($_POST['forgot'])){
         if($result === TRUE){
             echo "incorrect email or email does not exists";
         }else{
-          //  try{
-             //  $pdo = "INSERT INTO `camagru`.`users` (email, ) VALUES (?,?)";
-                // $stmt = $conn->prepare($pdo);
-                // $arr = array($mail, $verification_code);
-                // $stmt->execute($arr);
-               // echo "prep <br>";
-        
+
                 $msg = "click the link verifiy your account : http://localhost:8082/cama2/forgot2.php?email=$mail";
-                    
-              //  http://127.0.0.1:8082/abc.php?ver_code=$verification_code";
+                
             
                 $headers = array('From: noreply');
         
                 mail($mail, "Verificatin email", $msg, implode("\r\n", $headers));
                 echo "Check your email and change password <br>";
         
-          //  }catch(PDOException $e){
-          //      echo "<br>". $e->getMessage();
-         //   }
         }
     }catch(PDOException $e){
         echo $e->getMessage();
@@ -172,6 +167,7 @@ try{
  ***********************/
 
 if(isset($_POST['update'])){
+    session_start();
     include_once('connect.php');
     $name = $_POST['user'];
     $mail = $_POST['email'];
@@ -179,11 +175,11 @@ if(isset($_POST['update'])){
 
 try{
 
-    $pdo = "UPDATE `camagru`.`users` SET user=? email=? passwd= ? WHERE user=? email=? passwd= ?";
+    $pdo = "UPDATE `camagru`.`users` SET user=?, email=?, passwd= ? WHERE user=? ";
     $stmt = $conn->prepare($pdo);
-    $result = $stmt->execute([$name, $mail, $passwd]);
+    $result = $stmt->execute([$name, $mail, $passwd, $_SESSION["user"]]);
     if($result === TRUE){
-        $_SESSION['user'] = $result['user'];
+        $_SESSION['user'] = $name;
         header("location:abc.php");
     }else{
         echo "data not stored";

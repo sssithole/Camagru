@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +13,12 @@
 </head>
 <body>
 <form action="register.php" method="POST">
-    <input name="email" value="<?=$_GET['email']?>"  />
-    username<input type="text" name="user"><br>
-    e-mail<input type="email" name="email"><br>
-    password<input type="password" name="passwd"><br>
+    
+    username<input type="text" name="user" required><br>
+    e-mail<input type="email" name="email" required><br>
+    password<input type="password" name="passwd" required><br>
     <button type="submit" name="update">update</button>
+    <?php $_GET['user']?>
     </form>
 </body>
 </html>

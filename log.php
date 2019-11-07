@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +13,9 @@
 </head>
 <body>
     <form action="register.php" method="POST">
-    username<input type="text" name="user"><br>
+    username<input type="text" name="user" required><br>
     <!--e-mail<input type="email" name="email"><br-->
-    password<input type="password" name="passwd"><br>
+    password<input type="password" name="passwd" required><br>
     <button type="submit" name="login">login</button>
     </form>
 </body>
