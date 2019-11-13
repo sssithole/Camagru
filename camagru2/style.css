@@ -1,0 +1,15 @@
+.gallery-image {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+ }
+.thumbnail{
+    width: 100px;
+    height: 100px;
+    /* background-image: ; */
+    background-size: contain;
+    
+} 
